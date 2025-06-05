@@ -1,8 +1,15 @@
 package biblioteca.salas.duoc.biblioteca.salas.duoc.model;
 
+/* Importamos las anotaciones JPA para definir entidades y tablas en la base de datos */
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
+
+/* Importamos la anotacion de Lombok para generar automaticamente getters, setters, toString, etc. */
 import lombok.Data;
+
+/* Importamos la anotacion de Lombok para crear un constructor con todos los atributos */
+import lombok.AllArgsConstructor;
+
+/* Importamos la anotacion de Lombok para crear un constructor sin argumentos */
 import lombok.NoArgsConstructor;
 
 @Entity
