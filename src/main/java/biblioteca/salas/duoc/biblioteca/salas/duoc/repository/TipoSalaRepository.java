@@ -1,5 +1,7 @@
 package biblioteca.salas.duoc.biblioteca.salas.duoc.repository;
 
-public class TipoSalaRepository {
+import biblioteca.salas.duoc.biblioteca.salas.duoc.model.TipoSala;
+import org.springframework.data.jpa.repository.JpaRepository;
 
+public interface TipoSalaRepository extends JpaRepository<TipoSala, Integer> {
 }
