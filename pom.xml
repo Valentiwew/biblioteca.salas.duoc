@@ -12,7 +12,7 @@
 	<artifactId>biblioteca.salas.duoc</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>biblioteca.salas.duoc</name>
-	<description>Aplicacion de reservas de salas de bibliotecas</description>
+	<description>Aplicación de reservas de salas de bibliotecas</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -30,57 +30,80 @@
 		<java.version>24</java.version>
 	</properties>
 	<dependencies>
-		<dependency> <!-- Agrege la dependencia de DataJPA-->
+		
+		<!-- Dependencia de Spring Data JPA para acceso a base de datos -->
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
-		<dependency> <!-- Agrege la dependencia de Validation-->
+
+		<!-- Dependencia de validación de datos (Bean Validation) -->
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
-		<dependency> <!-- Agrege la dependencia de Spring Web	-->
+
+		<!-- Dependencia de Spring Web para crear APIs REST -->
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
-		<dependency> <!-- Agrege la dependencia de MySQL-->
+		<!-- Conector MySQL para conexión a base de datos -->
+		<dependency>
 			<groupId>com.mysql</groupId>
 			<artifactId>mysql-connector-j</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-		<dependency> <!-- Agrege la dependencia de Lombok -->
+
+		<!-- Lombok para reducir código repetitivo (getters, setters, etc.) -->
+		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
+
+		<!-- DataFaker para generar datos de prueba aleatorios -->
+		<dependency>
+			<groupId>net.datafaker</groupId>
+			<artifactId>datafaker</artifactId>
+			<version>2.4.2</version>
+		</dependency>
+
+		<!-- Dependencias para pruebas unitarias -->
+		
+		<!-- Spring Boot Starter Test (incluye JUnit, AssertJ, etc.) -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency> <!-- Agrege la dependencia de DataFaker -->
-			<groupId>net.datafaker</groupId>
-			<artifactId>datafaker</artifactId>
-			<version>2.4.2</version>
-		</dependency>
-		<dependency> <!-- Agrege la dependencia de Mockito -->
+
+		<!-- Mockito para crear mocks en las pruebas -->
+		<dependency>
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-core</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency> <!-- Agrege la dependencia de Jupiter-->
+
+		<!-- JUnit Jupiter (JUnit 5) para pruebas unitarias -->
+		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-engine</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
 
+	</dependencies>
 	<build>
 		<plugins>
+			<!-- Plugin de compilación de Maven con Lombok -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.11.0</version>
 				<configuration>
+					<source>24</source>
+					<target>24</target>
 					<annotationProcessorPaths>
 						<path>
 							<groupId>org.projectlombok</groupId>
@@ -89,6 +112,7 @@
 					</annotationProcessorPaths>
 				</configuration>
 			</plugin>
+			<!-- Plugin para empaquetar la aplicación como ejecutable -->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
@@ -103,5 +127,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
