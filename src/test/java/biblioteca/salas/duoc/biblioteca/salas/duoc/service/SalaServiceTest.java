@@ -10,7 +10,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import biblioteca.salas.duoc.biblioteca.salas.duoc.model.Sala;
 import biblioteca.salas.duoc.biblioteca.salas.duoc.model.TipoSala;
 import biblioteca.salas.duoc.biblioteca.salas.duoc.repository.SalaRepository;
-import biblioteca.salas.duoc.biblioteca.salas.duoc.service.SalaService;
 
 /* Importamos  */
 import org.junit.jupiter.api.Test;

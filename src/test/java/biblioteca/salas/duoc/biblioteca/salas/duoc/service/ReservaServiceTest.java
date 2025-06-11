@@ -1,11 +1,10 @@
 package biblioteca.salas.duoc.biblioteca.salas.duoc.service;
 
-/* Importamos las clases (Estudiante - Reserva - Sala - ReservaRepository - ReservaService) */
+/* Importamos las clases (Estudiante - Reserva - Sala - ReservaRepository) */
 import biblioteca.salas.duoc.biblioteca.salas.duoc.model.Estudiante;
 import biblioteca.salas.duoc.biblioteca.salas.duoc.model.Reserva;
 import biblioteca.salas.duoc.biblioteca.salas.duoc.model.Sala;
 import biblioteca.salas.duoc.biblioteca.salas.duoc.repository.ReservaRepository;
-import biblioteca.salas.duoc.biblioteca.salas.duoc.service.ReservaService;
 
 /* Importamos Jupiter? */
 import org.junit.jupiter.api.Test;

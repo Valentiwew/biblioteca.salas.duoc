@@ -9,7 +9,6 @@ import static org.junit.jupiter.api.Assertions.*;
 /* Importamos las clases (TipoSala - TipoSalaRepository - TipoSalaService) */
 import biblioteca.salas.duoc.biblioteca.salas.duoc.model.TipoSala;
 import biblioteca.salas.duoc.biblioteca.salas.duoc.repository.TipoSalaRepository;
-import biblioteca.salas.duoc.biblioteca.salas.duoc.service.TipoSalaService;
 
 /* Importamos Jupiter */
 import org.junit.jupiter.api.Test;

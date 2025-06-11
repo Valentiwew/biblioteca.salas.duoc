@@ -3,10 +3,9 @@ package biblioteca.salas.duoc.biblioteca.salas.duoc.service;
 import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-/* Importamos las clases (Carrera - CarreraRepository - CarreraService) */
+/* Importamos las clases (Carrera - CarreraRepository) */
 import biblioteca.salas.duoc.biblioteca.salas.duoc.model.Carrera;
 import biblioteca.salas.duoc.biblioteca.salas.duoc.repository.CarreraRepository;
-import biblioteca.salas.duoc.biblioteca.salas.duoc.service.CarreraService;
 
 import org.junit.jupiter.api.Test;
 
