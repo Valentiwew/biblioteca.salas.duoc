@@ -1,31 +1,40 @@
 package biblioteca.salas.duoc.biblioteca.salas.duoc.service;
 
+/* Importamos la clase (Carrera - CarreraRepository) */
 import biblioteca.salas.duoc.biblioteca.salas.duoc.model.Carrera;
 import biblioteca.salas.duoc.biblioteca.salas.duoc.repository.CarreraRepository;
-import jakarta.transaction.Transactional;
+
+/* Importamos @Autowired para que Spring inyecte automaticamente dependencias  */
 import org.springframework.beans.factory.annotation.Autowired;
+
+/* Importamos @Service para marcar esta clase como un servicio de Spring */
 import org.springframework.stereotype.Service;
 
+/* Importamos la clase List para manejar listas */
 import java.util.List;
-@Transactional
-public class CarreraService {
 
+@Service
+public class CarreraService {
     @Autowired
     private CarreraRepository carreraRepository;
 
-    public List<Carrera> listar() {
+    /* Metodo para obtener a todas las carreras de la BD */
+    public List<Carrera> listarTodo() {
         return carreraRepository.findAll();
     }
 
-    public Carrera obtenerCarreraPorId(String codigo) {
-        return carreraRepository.findById(codigo).get();
+    /* Metodo para obtener una carrera por un Codigo*/
+    public Carrera obtenerCodigo(String codigo) {
+        return carreraRepository.findById(codigo).orElse(null);
     }
 
-    public Carrera guardarCarrera(Carrera carrera) {
+    /* Metodo para guardar una carrera */
+    public Carrera guardar(Carrera carrera) {
         return carreraRepository.save(carrera);
     }
 
-    public void eliminarCarrera(String codigo) {
+    /* Metodo para eliminar un codigo de una carrera */
+    public void eliminarCodigo(String codigo) {
         carreraRepository.deleteById(codigo);
     }
 }

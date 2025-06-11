@@ -1,17 +1,31 @@
 package biblioteca.salas.duoc.biblioteca.salas.duoc;
 
+/* Importamos las clases (model - Repository) */
 import biblioteca.salas.duoc.biblioteca.salas.duoc.model.*;
 import biblioteca.salas.duoc.biblioteca.salas.duoc.repository.*;
 
+/* Importamos Faker para generar datos falsos (nombres, correos, etc.) */
 import net.datafaker.Faker;
 
+/* Importamos @Autowired para inyectar dependencias automáticamente */
 import org.springframework.beans.factory.annotation.Autowired;
+
+/* Importamos CommandLineRunner para ejecutar código al iniciar la aplicación */
 import org.springframework.boot.CommandLineRunner;
 
+/* Importamos @Profile para activar esta clase solo con un perfil específico */
 import org.springframework.context.annotation.Profile;
+
+/* Importamos @Component para que Spring reconozca esta clase como un componente */
 import org.springframework.stereotype.Component;
+
+/* Importamos Date para trabajar con fechas */
 import java.util.Date;
+
+/* Importamos la clase List para manejar listas */
 import java.util.List;
+
+/* Importamos la clase Random para generar números aleatorios */
 import java.util.Random;
 
 @Profile("dev")
@@ -54,11 +68,9 @@ public class DataLoader implements CommandLineRunner {
         /* Generar estudiantes */
         for (int i = 0; i < 50; i++) {
             Estudiante estudiante = new Estudiante();
-            estudiante.setId(i + 1);
             estudiante.setRun(faker.idNumber().valid());
             estudiante.setNombres(faker.name().fullName());
             estudiante.setCorreo(faker.internet().emailAddress());
-            estudiante.setJornada(faker.options().option("D", "N").charAt(0));
             estudiante.setTelefono(faker.number().numberBetween(100000000, 999999999));
             estudiante.setCarrera(carreras.get(random.nextInt(carreras.size())));
             estudianteRepository.save(estudiante);

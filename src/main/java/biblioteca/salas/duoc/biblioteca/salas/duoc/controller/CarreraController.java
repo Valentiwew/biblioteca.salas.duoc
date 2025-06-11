@@ -1,69 +1,47 @@
 package biblioteca.salas.duoc.biblioteca.salas.duoc.controller;
 
+/* Importamos las clases (Carrera - CarreraService) */
 import biblioteca.salas.duoc.biblioteca.salas.duoc.model.Carrera;
 import biblioteca.salas.duoc.biblioteca.salas.duoc.service.CarreraService;
+
+/* Importamos la anotacion para que Spring pueda inyectar objetos automaticamente */
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+
+/* Importamos todas las anotaciones */
 import org.springframework.web.bind.annotation.*;
 
+/* Importamos la clase List para manejar listas */
 import java.util.List;
-@RestController
-@RequestMapping("/api/v1/carreras")
 
+@RestController
+@RequestMapping("/api/v1/carreras") /* La estructura del HTTP de nuestra API */
 public class CarreraController {
     @Autowired
     private CarreraService carreraService;
 
     @GetMapping
-    public ResponseEntity<List<Carrera>> listar() {
-        List<Carrera> carreras = carreraService.listar();
-        if (carreras.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }
-        return new ResponseEntity<>(carreras, HttpStatus.OK);
+    public List<Carrera> listarCarreras() {
+        return carreraService.listarTodo();
     }
 
     @GetMapping("/{codigo}")
-    public ResponseEntity<Carrera> obtenerCarreraPorId(@PathVariable String codigo) {
-        try {
-            Carrera carrera = carreraService.obtenerCarreraPorId(codigo);
-            return new ResponseEntity<>(carrera, HttpStatus.OK);
-        }
-        catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+    public Carrera obtenerCarreraPorCodigo(@PathVariable String codigo) {
+        return carreraService.obtenerCodigo(codigo);
     }
 
     @PostMapping
-    public ResponseEntity<Carrera> crearCarrera(@RequestBody Carrera carrera) {
-        Carrera savedCarrera = carreraService.guardarCarrera(carrera);
-        return new ResponseEntity<>(savedCarrera, HttpStatus.CREATED);
+    public Carrera crearCarrera(@RequestBody Carrera carrera) {
+        return carreraService.guardar(carrera);
     }
 
     @PutMapping("/{codigo}")
-    public ResponseEntity<Carrera> actualizarCarrera(@PathVariable String codigo, Carrera carrera) {
-        try {
-            Carrera carreraActualizada = carreraService.obtenerCarreraPorId(codigo);
-            carreraActualizada.setCodigo(codigo);
-            carreraActualizada.setNombre(carrera.getNombre());
-
-            carreraService.guardarCarrera(carreraActualizada);
-            return new ResponseEntity<>(carreraActualizada, HttpStatus.OK);
-        }
-        catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+    public Carrera actualizarCarrera(@PathVariable String codigo, @RequestBody Carrera carrera) {
+        carrera.setCodigo(codigo);
+        return carreraService.guardar(carrera);
     }
 
     @DeleteMapping("/{codigo}")
-    public ResponseEntity<Void> eliminarCarrera(@PathVariable String codigo) {
-        try {
-            carreraService.eliminarCarrera(codigo);
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }
-        catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+    public void eliminarCarrera(@PathVariable String codigo) {
+        carreraService.eliminarCodigo(codigo);
     }
 }

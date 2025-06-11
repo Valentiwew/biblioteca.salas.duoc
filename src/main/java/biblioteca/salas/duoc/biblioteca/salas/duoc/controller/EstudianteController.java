@@ -20,12 +20,12 @@ public class EstudianteController {
     private EstudianteService estudianteService;
 
     @GetMapping /* Anotacion que obtiene a Todos los Estudiantes */
-    public List<Estudiante> obtenerTodosEstudiantes() {
-        return estudianteService.obtenerTodos();
+    public List<Estudiante> listarTodosEstudiantes() {
+        return estudianteService.listarTodos();
     }
 
     @GetMapping("/{id}") /* Anotacion que obtiene a los Estudiantes por su ID */
-    public Estudiante obtenerEstudiantesPorId(@PathVariable long id) {
+    public Estudiante obtenerEstudiantesPorId(@PathVariable Integer id) {
         return estudianteService.obtenerPorId(id);
     }
 
@@ -35,7 +35,7 @@ public class EstudianteController {
     }
 
     @PutMapping("/{id}") /* Anotacion que sirve para Actualizar a un Estudiante */
-    public Estudiante actualizarEstudiante(@PathVariable Long id, @RequestBody Estudiante estudiante) {
+    public Estudiante actualizarEstudiante(@PathVariable Integer id, @RequestBody Estudiante estudiante) {
         /* setId, es el objeto de la clase "Estudiante",
            Que esta recibiendo desde @RequestBody */
         estudiante.setId(id);
@@ -43,7 +43,7 @@ public class EstudianteController {
     }
 
     @DeleteMapping("/{id}") /* Anotacion para Eliminar a un Estudiante */
-    public void eliminarEstudiante(@PathVariable Long id) {
+    public void eliminarEstudiante(@PathVariable Integer id) {
         estudianteService.eliminarPorId(id);
     }
 }

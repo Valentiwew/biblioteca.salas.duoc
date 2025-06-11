@@ -1,16 +1,9 @@
 package biblioteca.salas.duoc.biblioteca.salas.duoc.model;
 
-/* Importamos las anotaciones JPA para definir entidades y tablas en la base de datos */
-import jakarta.persistence.*;
-
-/* Importamos la anotacion de Lombok para generar automaticamente getters, setters, toString, etc. */
-import lombok.Data;
-
-/* Importamos la anotacion de Lombok para crear un constructor con todos los atributos */
-import lombok.AllArgsConstructor;
-
-/* Importamos la anotacion de Lombok para crear un constructor sin argumentos */
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*; /* Importamos las anotaciones JPA para definir entidades y tablas en la base de datos */
+import lombok.Data; /* Importamos la anotacion de Lombok para generar automaticamente getters, setters, toString, etc. */
+import lombok.AllArgsConstructor; /* Importamos la anotacion de Lombok para crear un constructor con todos los atributos */
+import lombok.NoArgsConstructor; /* Importamos la anotacion de Lombok para crear un constructor sin argumentos */
 
 @Entity
 @Table(name = "estudiante")
@@ -21,7 +14,7 @@ import lombok.NoArgsConstructor;
 public class Estudiante {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @Column(unique = true, nullable = false, length = 9)
     private String run;
@@ -33,7 +26,7 @@ public class Estudiante {
     private String correo;
 
     @Column(nullable = false, length = 100)
-    private String jornada;
+    private char jornada;
 
     @Column(nullable = true, length = 100)
     private Integer telefono;

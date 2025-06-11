@@ -19,12 +19,12 @@ public class EstudianteService {
     private EstudianteRepository estudianteRepository;
 
     /* Metodo para obtener a todos los estudiantes de la BD */
-    public List<Estudiante> obtenerTodos() {
+    public List<Estudiante> listarTodos() {
         return estudianteRepository.findAll();
     }
 
     /* Metodo para obtener un estudiante por ID*/
-    public Estudiante obtenerPorId(Long id) {
+    public Estudiante obtenerPorId(Integer id) {
         /* Lo que hace es llamar al repository para buscar al estudiante por su ID y si no lo encuentra, nos devuelve un null */
         return estudianteRepository.findById(id).orElse(null);
     }
@@ -35,7 +35,7 @@ public class EstudianteService {
     }
 
     /* Metodo para eliminar un estudiante por su ID */
-    public void eliminarPorId(Long id) {
+    public void eliminarPorId(Integer id) {
         estudianteRepository.deleteById(id);
     }
 }

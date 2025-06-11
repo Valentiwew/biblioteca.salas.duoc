@@ -1,14 +1,20 @@
 package biblioteca.salas.duoc.biblioteca.salas.duoc.controller;
 
+/* Importamos las clases (TipoSala - TipoSalaService) */
 import biblioteca.salas.duoc.biblioteca.salas.duoc.model.TipoSala;
 import biblioteca.salas.duoc.biblioteca.salas.duoc.service.TipoSalaService;
+
+/* Importamos la anotacion para que Spring pueda inyectar objetos automaticamente */
 import org.springframework.beans.factory.annotation.Autowired;
+
+/* Importamos todas las anotaciones */
 import org.springframework.web.bind.annotation.*;
 
+/* Importamos la clase List para manejar listas */
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/tipo-salas")
+@RequestMapping("/api/v1/tipo-salas") /* La estructura del HTTP de nuestra API */
 public class TipoSalaController {
     @Autowired
     private TipoSalaService tipoSalaService;
@@ -19,7 +25,7 @@ public class TipoSalaController {
     }
 
     @GetMapping("/{id}")
-    public TipoSala obtenerTipoSalaById(@PathVariable Integer id) {
+    public TipoSala obtenerTipoSalaPorId(@PathVariable Integer id) {
         return tipoSalaService.obtenerPorId(id);
     }
 
