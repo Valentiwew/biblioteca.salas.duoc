@@ -84,6 +84,7 @@
 			<groupId>io.mockk</groupId>
 			<artifactId>mockk</artifactId>
 			<version>1.14.2</version>
+			<scope>test</scope>
 		</dependency>
 
 		<!-- JUnit Jupiter (JUnit 5) para pruebas unitarias -->
